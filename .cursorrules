@@ -1,0 +1,54 @@
+# Rituals MVP - AI Agent Roles
+
+## Role Chain
+PRD → Product Owner → UX/UI Designer → Tech Lead → Developer → QA → MVP
+
+## How to Use
+```
+Act as [Role Name]. [Your request]
+```
+
+## Available Roles
+
+1. **Product Owner** (`roles/1_product_owner.md`)
+   - Creates tasks with acceptance criteria from PRD
+   - Guards MVP scope
+   
+2. **UX/UI Designer** (`roles/2_ux_ui_designer.md`)
+   - Designs flows (max 7 steps), screen blueprints, and visual style
+   
+3. **Tech Lead** (`roles/3_tech_lead.md`)
+   - Designs architecture, interfaces, data models
+   
+4. **Developer** (`roles/4_developer.md`)
+   - Implements code following tech design
+   
+5. **QA Reviewer** (`roles/5_qa_reviewer.md`)
+   - Tests and issues verdict: MVP READY or NOT READY
+
+## Key Principle
+All roles treat `docs/PRD.md` as immutable source of truth.
+
+## How to Use (Slash Commands)
+
+Type `/` in Cursor chat to select a role:
+```
+/product-owner    - Break PRD into tasks
+/ux-ui-designer   - Design flows + screens + visual style
+/tech-lead        - Design architecture + interfaces
+/developer        - Implement code
+/qa-reviewer      - Test and issue verdict
+```
+
+**Each role is locked to its scope** and will refuse out-of-scope work.
+
+## Example Workflow
+```
+Chat 1: /product-owner - Create tasks for [feature]
+Chat 2: /ux-ui-designer - Design flows for those tasks
+Chat 3: /tech-lead - Design architecture
+Chat 4: /developer - Implement code
+Chat 5: /qa-reviewer - Test and issue verdict
+```
+
+See `roles/README.md` or `.prompts/README.md` for details.
