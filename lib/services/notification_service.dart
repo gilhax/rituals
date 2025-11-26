@@ -1,9 +1,9 @@
-import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:timezone/timezone.dart' as tz;
 import '../models/ritual.dart';
 import 'notification_service_interface.dart';
+import '../utils/platform_helper.dart';
 
 /// Service for managing local notifications (Native: iOS/Android/macOS)
 class NotificationService implements INotificationService {
@@ -51,7 +51,7 @@ class NotificationService implements INotificationService {
     );
 
     // Request permissions for iOS/macOS
-    if (Platform.isIOS || Platform.isMacOS) {
+    if (isIOS || isMacOS) {
       await _plugin
           .resolvePlatformSpecificImplementation<
               IOSFlutterLocalNotificationsPlugin>()
